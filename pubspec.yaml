@@ -35,6 +35,12 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
 
+  # For Database - SQLite
+  # sqflite - Flutter plugin for SQLite
+  sqflite: ^2.4.2
+  # path - A string-based path manipulation library
+  path: ^1.9.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
