@@ -17,7 +17,7 @@ class DataBase {
           ${StudentFields.id} ${StudentFields.typeId},
           ${StudentFields.firstName} ${StudentFields.typeText},
           ${StudentFields.lastName} ${StudentFields.typeText},
-          ${StudentFields.studentsYear} ${StudentFields.typeInt},
+          ${StudentFields.studentsYear} ${StudentFields.typeInt}
         )
       ''');
   }
