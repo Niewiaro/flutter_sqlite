@@ -41,12 +41,40 @@ class _MyHomePageState extends State<MyHomePage> {
       lastName: "Mruk",
       studentsYear: 2,
     );
+    Students fifthStudent = Students(
+      id: 4,
+      firstName: "Żaneta",
+      lastName: "Bąbel",
+      studentsYear: 3,
+    );
+    Students sixthStudent = Students(
+      id: 5,
+      firstName: "Miłosz",
+      lastName: "Baran",
+      studentsYear: 5,
+    );
+    Students seventhStudent = Students(
+      id: 6,
+      firstName: "Agnieszka",
+      lastName: "Rozkosz",
+      studentsYear: 5,
+    );
+    Students eighthStudent = Students(
+      id: 7,
+      firstName: "Robert",
+      lastName: "Prawowski",
+      studentsYear: 5,
+    );
 
     List<Students> students = [
       firstStudent,
       secondStudent,
       thirdStudent,
       fourthStudent,
+      fifthStudent,
+      sixthStudent,
+      seventhStudent,
+      eighthStudent,
     ];
     return await handler.insertStudents(students);
   }
