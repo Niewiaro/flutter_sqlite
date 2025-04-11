@@ -84,7 +84,10 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     handler = DataBase();
     handler.initializedDB().whenComplete(() async {
-      await addStudents();
+      List<Students> existing = await handler.retrieveStudents();
+      if (existing.isEmpty) {
+        await addStudents();
+      }
       setState(() {});
     });
   }
