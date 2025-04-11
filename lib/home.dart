@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sqlite/add_student.dart';
 import 'package:flutter_sqlite/sql_management/database.dart';
 import 'package:flutter_sqlite/sql_management/model_students.dart';
+import 'package:flutter_sqlite/student_details.dart';
 import 'package:provider/provider.dart';
 
 import 'theme_controller.dart';
@@ -182,6 +183,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),
+                    onTap: () async {
+                      final shouldRefresh = await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => StudentDetailsPage(student: student),
+                        ),
+                      );
+                      if (shouldRefresh == true) {
+                        setState(() {});
+                      }
+                    },
                   ),
                 );
               },
