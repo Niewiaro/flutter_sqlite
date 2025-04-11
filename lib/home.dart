@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sqlite/add_student.dart';
 import 'package:flutter_sqlite/sql_management/database.dart';
 import 'package:flutter_sqlite/sql_management/model_students.dart';
 import 'package:provider/provider.dart';
@@ -191,6 +192,21 @@ class _MyHomePageState extends State<MyHomePage> {
           }
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          final result = await Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const AddStudentPage()),
+          );
+
+          if (result == true) {
+            setState(() {});
+          }
+        },
+        tooltip: 'Add',
+        child: const Icon(Icons.add),
+      ),
+
     );
   }
 }
