@@ -73,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         backgroundColor: Theme.of(context).colorScheme.primaryContainer,
         centerTitle: true,
-        elevation: 2,
+        elevation: 3,
         actions: [
           Consumer<ThemeController>(
             builder: (context, themeController, _) {
@@ -125,21 +125,36 @@ class _MyHomePageState extends State<MyHomePage> {
         ) {
           if (snapshot.hasData) {
             return ListView.builder(
+              padding: const EdgeInsets.all(12),
               itemCount: snapshot.data?.length,
               itemBuilder: (BuildContext context, int index) {
+                final student = snapshot.data![index];
                 return Card(
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                  margin: const EdgeInsets.symmetric(vertical: 8),
                   child: ListTile(
-                    contentPadding: const EdgeInsets.all(8.0),
+                    leading: const Icon(Icons.person),
                     title: Text(
-                      '${snapshot.data![index].firstName} ${snapshot.data![index].lastName}',
+                      '${student.firstName} ${student.lastName}',
+                      style: Theme.of(context).textTheme.titleMedium,
                     ),
                     subtitle: Text(
-                      'Rok ${snapshot.data![index].studentsYear.toString()}',
+                      'Rok ${student.studentsYear}',
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
                     ),
                   ),
                 );
               },
             );
+
           } else {
             return const Center(child: CircularProgressIndicator());
           }

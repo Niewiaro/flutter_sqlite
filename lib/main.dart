@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'home.dart';
 import 'theme_controller.dart';
 
@@ -24,7 +26,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter SQLite',
       themeMode: themeController.themeMode,
       theme: ThemeData(
-        brightness: Brightness.light,
+        textTheme: GoogleFonts.rubikTextTheme(
+          ThemeData(brightness: Brightness.light).textTheme,
+        ),
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.indigo,
           brightness: Brightness.light,
@@ -32,16 +36,18 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       darkTheme: ThemeData(
-        brightness: Brightness.dark,
+        textTheme: GoogleFonts.rubikTextTheme(
+          ThemeData(brightness: Brightness.dark).textTheme,
+        ),
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.indigoAccent,
           brightness: Brightness.dark,
         ),
         useMaterial3: true,
       ),
+
       home: const MyHomePage(title: 'Flutter SQLite'),
       debugShowCheckedModeBanner: false,
     );
   }
 }
-
